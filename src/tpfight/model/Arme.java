@@ -1,6 +1,6 @@
 package tpfight.model;
 
-public class Arme {
+public class Arme implements IButin {
 	private String nom;
 	private int ptsActionMin;
 	private int ptsDegat;
@@ -31,5 +31,7 @@ public class Arme {
 		this.ptsDegat = ptsDegat;
 	}
 	
-	
+	public void distribuerButin() {
+		
+	}
 }
