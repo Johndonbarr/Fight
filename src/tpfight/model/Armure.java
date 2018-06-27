@@ -22,6 +22,4 @@ public class Armure implements IButin{
 	public void setPtsArmure(int ptsArmure) {
 		this.ptsArmure = ptsArmure;
 	}
-
-		
 }
