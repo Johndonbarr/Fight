@@ -34,4 +34,4 @@ public class Arme implements IButin {
 	public void distribuerButin() {
 		
 	}
-}
+  }

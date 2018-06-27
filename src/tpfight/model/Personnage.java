@@ -4,6 +4,7 @@ public class Personnage {
 	private String nom;
 	private int ptsVie;
 	private int ptsAction;
+
 	private Arme arme;
 	private Armure armure;
 	
@@ -50,6 +51,4 @@ public class Personnage {
 	public void setArmure(Armure armure) {
 		this.armure = armure;
 	}
-	
-	
 }
