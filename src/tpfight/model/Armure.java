@@ -1,4 +1,4 @@
-package tpfight;
+package tpfight.model;
 
 public class Armure {
 
