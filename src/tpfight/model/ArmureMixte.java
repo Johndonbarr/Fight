@@ -1,8 +1,8 @@
 package tpfight.model;
 
-public class ArmurePhysique extends Armure {
+public class ArmureMixte extends Armure {
 
-	public ArmurePhysique(String nom, int ptsArmure) {
+	public ArmureMixte(String nom, int ptsArmure) {
 		super(nom, ptsArmure);
 		// TODO Auto-generated constructor stub
 	}
