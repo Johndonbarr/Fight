@@ -1,10 +1,14 @@
 package tpfight.model;
 
-public class Heros extends Personnage {
+import tpfight.model.rpg.TypePersonnage;
 
-	public Heros(String nom, int ptsVie, int ptsAction, Arme arme, Armure armure) {
-		super(nom, ptsVie, ptsAction, arme, armure);
-		
+public class Heros extends Personnage {
+	public Heros() {
+		super();
+	}
+
+	public Heros(TypePersonnage typePersonnage) {
+		super(typePersonnage);
 	}
 
 }

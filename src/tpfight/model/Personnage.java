@@ -1,22 +1,30 @@
 package tpfight.model;
 
-public class Personnage {
-	private String nom;
-	private int ptsVie;
-	private int ptsAction;
+import java.util.ArrayList;
+import java.util.List;
 
+import tpfight.model.rpg.TypePersonnage;
+
+public abstract class Personnage {
+	private final static String EQUIPWEAPON = "%s s'equipe d'une arme %s avec %s";
+	private final static String EQUIPARMOR = "%s s'equipe d'une armure %s avec %s";
+	
+	private String nom;
+	Characteristic characteristic;
 	private Arme arme;
 	private Armure armure;
-	
-	public Personnage(String nom, int ptsVie, int ptsAction, Arme arme, Armure armure) {
-		super();
-		this.nom = nom;
-		this.ptsVie = ptsVie;
-		this.ptsAction = ptsAction;
-		this.arme = arme;
-		this.armure = armure;
+	private TypePersonnage typePersonnage;
+	private List<IButin> butins;
+
+	public Personnage() {
+		this.setButins(new ArrayList<IButin>());
 	}
 	
+	public Personnage(TypePersonnage typePersonnage) {
+		this();
+		this.typePersonnage = typePersonnage;
+	}
+
 	public String getNom() {
 		return nom;
 	}
@@ -24,25 +32,23 @@ public class Personnage {
 		this.nom = nom;
 	}
 	
-	public int getPtsVie() {
-		return ptsVie;
+	public Characteristic getCharacteristic() {
+		return characteristic;
 	}
-	public void setPtsVie(int ptsVie) {
-		this.ptsVie = ptsVie;
-	}
-	
-	public int getPtsAction() {
-		return ptsAction;
-	}
-	public void setPtsAction(int ptsAction) {
-		this.ptsAction = ptsAction;
+	public void setCharacteristic(Characteristic characteristic) {
+		this.characteristic = characteristic;
 	}
 	
 	public Arme getArme() {
 		return arme;
 	}
 	public void setArme(Arme arme) {
-		this.arme = arme;
+		if (this.getTypePersonnage().isEquipable(arme)) {
+			this.arme = arme;
+			System.out.println(String.format(EQUIPWEAPON,this.getNom(), arme.getClass().getSimpleName(), arme.getStats()));
+		}else{
+			System.out.println(this.getTypePersonnage().getWeaponRestriction());
+		}
 	}
 	
 	public Armure getArmure() {
@@ -50,5 +56,19 @@ public class Personnage {
 	}
 	public void setArmure(Armure armure) {
 		this.armure = armure;
+	}
+	
+	public TypePersonnage getTypePersonnage() {
+		return typePersonnage;
+	}
+	public void setTypePersonnage(TypePersonnage typePersonnage) {
+		this.typePersonnage = typePersonnage;
+	}
+
+	public List<IButin> getButins() {
+		return butins;
+	}
+	public void setButins(List<IButin> butins) {
+		this.butins = butins;
 	}
 }

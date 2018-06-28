@@ -1,9 +1,15 @@
 package tpfight.model;
 
+import tpfight.model.rpg.TypePersonnage;
+
 public class Mob extends Personnage {
 
-	public Mob(String nom, int ptsVie, int ptsAction, Arme arme, Armure armure) {
-		super(nom, ptsVie, ptsAction, arme, armure);
+	public Mob(){
+		super();
+	}
+	
+	public Mob(TypePersonnage typePersonnage) {
+		super(typePersonnage);
 		
 	}
 
